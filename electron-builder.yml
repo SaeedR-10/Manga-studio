@@ -1,0 +1,56 @@
+appId: ir.ravayat.studio
+productName: Ravayat Studio
+copyright: Copyright © 2026 Ravayat Studio
+
+directories:
+  output: release
+  buildResources: desktop/resources
+
+files:
+  - desktop/main.js
+  - desktop/resources/icon.ico
+  - package.json
+  - "!node_modules/**"
+  - "!**/*.map"
+
+extraResources:
+  - from: desktop/resources/icon.ico
+    to: icon.ico
+
+afterPack: desktop/after-pack.cjs
+
+asar: true
+npmRebuild: false
+compression: normal
+electronLanguages:
+  - en-US
+  - fa
+publish: null
+
+win:
+  target:
+    - target: nsis
+      arch:
+        - x64
+  icon: desktop/resources/icon.ico
+  executableName: RavayatStudio
+  artifactName: Ravayat-Studio-Setup-${version}.${ext}
+  legalTrademarks: Ravayat Studio
+  requestedExecutionLevel: asInvoker
+
+nsis:
+  oneClick: false
+  perMachine: false
+  allowElevation: true
+  allowToChangeInstallationDirectory: true
+  createDesktopShortcut: always
+  createStartMenuShortcut: true
+  shortcutName: Ravayat Studio
+  menuCategory: false
+  uninstallDisplayName: Ravayat Studio
+  deleteAppDataOnUninstall: false
+  runAfterFinish: true
+  installerIcon: desktop/resources/icon.ico
+  uninstallerIcon: desktop/resources/icon.ico
+  installerHeaderIcon: desktop/resources/icon.ico
+  artifactName: Ravayat-Studio-Setup-${version}.${ext}
